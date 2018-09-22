@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import styled from 'styled-components';
 
 import Bio from '../components/Bio';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { rhythm, scaled } from '../utils/typography';
 
 const Date = styled.p`
