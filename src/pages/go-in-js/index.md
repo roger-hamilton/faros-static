@@ -2,7 +2,7 @@
 title: Running Go code in JavaScript
 date: "2018-09-21"
 ---
-First Lines...
+This is a work in progress...
 
 ```javascript
 // javascript
@@ -10,6 +10,7 @@ const t = true;
 ```
 
 ```go
+// GO
 package main
 
 import "fmt"

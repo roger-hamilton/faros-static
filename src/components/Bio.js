@@ -27,7 +27,7 @@ const Bio = () => (
       Written by{' '}<strong>Roger Hamilton</strong>{' '}
       who lives and works in Oklahoma City building useful(-ish) things.
       {' '}
-      <a href="https://twitter.com/jollyroger726">You should follow him on Twitter</a>
+      <a href="https://www.linkedin.com/in/roger-hamilton-995b6290/">You should connect with him on LinkedIn</a>
     </p>
   </Container>
 );

@@ -48,13 +48,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Faros Development Blog',
+        name: 'Faros Dev Blog',
         short_name: 'FarosDev',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#663399',
+        theme_color: '#2883dd',
         display: 'minimal-ui',
-        icon: 'src/assets/gatsby-icon.png',
+        icon: 'src/assets/Faros.png',
       },
     },
     'gatsby-plugin-offline',
