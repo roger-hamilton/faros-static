@@ -1,39 +1,35 @@
-import React from 'react'
+import React from 'react';
 
 // Import typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
+import 'typeface-montserrat';
+import 'typeface-merriweather';
+import styled from 'styled-components';
 
-import profilePic from './profile-pic.jpg'
-import { rhythm } from '../utils/typography'
+import profilePic from './profile-pic.jpg';
+import { rhythm } from '../utils/typography';
 
-export default class Bio extends React.Component {
-  render() {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          marginBottom: rhythm(2.5),
-        }}
-      >
-        <img
-          src={profilePic}
-          alt={`Roger Hamilton`}
-          style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            width: rhythm(2),
-            height: rhythm(2),
-          }}
-        />
-        <p>
-          Written by <strong>Roger Hamilton</strong> who lives and works in Oklahoma City
-          building useful(-ish) things.{' '}
-          <a href="https://twitter.com/jollyroger726">
-            You should follow him on Twitter
-          </a>
-        </p>
-      </div>
-    )
-  }
-}
+const Container = styled.div`
+  display: flex;
+  margin-bottom: ${rhythm(2.5)};
+`;
+
+const ProfilePic = styled.img`
+  margin-right: ${rhythm(1 / 2)};
+  margin-bottom: 0;
+  width: ${rhythm(2)};
+  height: ${rhythm(2)};
+`;
+
+const Bio = () => (
+  <Container>
+    <ProfilePic src={profilePic} alt="Roger Hamilton" />
+    <p>
+      Written by{' '}<strong>Roger Hamilton</strong>{' '}
+      who lives and works in Oklahoma City building useful(-ish) things.
+      {' '}
+      <a href="https://twitter.com/jollyroger726">You should follow him on Twitter</a>
+    </p>
+  </Container>
+);
+
+export default Bio;
