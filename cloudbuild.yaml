@@ -5,5 +5,5 @@ steps:
   args: ['run', 'build']
 artifacts:
   objects:
-    location: 'gs://static-blog'
+    location: 'gs://blog.farosdev.com'
     paths: ['public/*']
