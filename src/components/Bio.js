@@ -6,7 +6,7 @@ import 'typeface-merriweather';
 import styled from 'styled-components';
 
 import profilePic from './profile-pic.jpg';
-import { rhythm } from '../utils/typography';
+import { rhythm, scaled } from '../utils/typography';
 
 const Container = styled.div`
   display: flex;
@@ -20,14 +20,19 @@ const ProfilePic = styled.img`
   height: ${rhythm(2)};
 `;
 
+const Small = styled.div`
+  ${scaled(-3 / 5)}
+`;
+
 const Bio = () => (
   <Container>
     <ProfilePic src={profilePic} alt="Roger Hamilton" />
     <p>
       Written by{' '}<strong>Roger Hamilton</strong>{' '}
-      who lives and works in Oklahoma City building useful(-ish) things.
+      who lives and works in Oklahoma City, creating useful* things.
       {' '}
       <a href="https://www.linkedin.com/in/roger-hamilton-995b6290/">You should connect with him on LinkedIn</a>
+      <Small>*technically useful-ish</Small>
     </p>
   </Container>
 );
