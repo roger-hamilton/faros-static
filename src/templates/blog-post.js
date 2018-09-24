@@ -31,6 +31,18 @@ const BlogPostTemplate = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
   const siteDescription = post.excerpt;
 
+  const discusScript = `
+   var disqus_config = function () {
+   this.page.url = 'https://blog.farosdev.com${location.pathname}';  // Replace PAGE_URL with your page's canonical URL variable
+   this.page.identifier = '${location.pathname}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+   };
+   (function() { // DON'T EDIT BELOW THIS LINE
+   var d = document, s = d.createElement('script');
+   s.src =  'https://blog-farosdev-com.disqus.com/embed.js';;
+   s.setAttribute('data-timestamp', +new Date());
+   (d.head || d.body).appendChild(s);
+   })();`;
+
   return (
     <Layout location={location}>
       <Helmet
@@ -49,6 +61,9 @@ const BlogPostTemplate = (props) => {
 
       <Bio />
 
+      <div id="disqus_thread" />
+      <script dangerouslySetInnerHTML={{ __html: discusScript }} />
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       <DiscoverList>
         <li>
           {previous && (
@@ -65,6 +80,7 @@ const BlogPostTemplate = (props) => {
           )}
         </li>
       </DiscoverList>
+      <script id="dsq-count-scr" src="//blog-farosdev-com.disqus.com/count.js" async />
     </Layout>
   );
 };
