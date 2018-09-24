@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
 import styled from 'styled-components';
+import Disqus from 'disqus-react';
 
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
@@ -31,17 +32,13 @@ const BlogPostTemplate = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
   const siteDescription = post.excerpt;
 
-  const discusScript = `
-   var disqus_config = function () {
-   this.page.url = 'https://blog.farosdev.com${location.pathname}';  // Replace PAGE_URL with your page's canonical URL variable
-   this.page.identifier = '${location.pathname}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-   };
-   (function() { // DON'T EDIT BELOW THIS LINE
-   var d = document, s = d.createElement('script');
-   s.src =  'https://blog-farosdev-com.disqus.com/embed.js';;
-   s.setAttribute('data-timestamp', +new Date());
-   (d.head || d.body).appendChild(s);
-   })();`;
+  const disqusConfig = {
+    url: `https://blog.farosdev.com${location.path}`,
+    identifier: post.id,
+    title: post.frontmatter.title,
+  };
+
+  const disqusShortname = 'blog-farosdev-com';
 
   return (
     <Layout location={location}>
@@ -61,9 +58,8 @@ const BlogPostTemplate = (props) => {
 
       <Bio />
 
-      <div id="disqus_thread" />
-      <script dangerouslySetInnerHTML={{ __html: discusScript }} />
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+
       <DiscoverList>
         <li>
           {previous && (
@@ -80,7 +76,6 @@ const BlogPostTemplate = (props) => {
           )}
         </li>
       </DiscoverList>
-      <script id="dsq-count-scr" src="//blog-farosdev-com.disqus.com/count.js" async />
     </Layout>
   );
 };

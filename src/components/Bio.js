@@ -27,13 +27,13 @@ const Small = styled.div`
 const Bio = () => (
   <Container>
     <ProfilePic src={profilePic} alt="Roger Hamilton" />
-    <p>
+    <div>
       Written by{' '}<strong>Roger Hamilton</strong>{' '}
       who lives and works in Oklahoma City, creating useful* things.
       {' '}
       <a href="https://www.linkedin.com/in/roger-hamilton-995b6290/">You should connect with him on LinkedIn</a>
       <Small>*technically useful-ish</Small>
-    </p>
+    </div>
   </Container>
 );
 
