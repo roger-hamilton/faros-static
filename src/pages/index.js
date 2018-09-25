@@ -2,11 +2,19 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
+import { injectGlobal } from 'styled-components';
 
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import { rhythm } from '../utils/typography';
 
+/* eslint-disable no-unused-expressions */
+injectGlobal`
+  video {
+    max-width: 100%;
+  }
+`;
+/* eslint-enable no-unused-expressions */
 
 const BlogIndex = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');

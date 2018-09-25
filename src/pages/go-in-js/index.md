@@ -1,10 +1,10 @@
 ---
-title: Running Go code in Node
+title: Running Go in Node.js
 date: "2018-09-21"
 ---
-#
+# Lets Get Started
 
-In this article we will be exploring running WebAssembly (or WASM) in node. Specifically we will see how to get Go 1.11 code compiled down to WASM and run that code in Node.js.
+We will be exploring running WebAssembly (or WASM) in node. Specifically we will see how to get Go 1.11 code compiled down to WASM and run that code in Node.js.
 
 We will compile this Go program:
 
@@ -19,20 +19,24 @@ import (
 )
 
 func fib(n int) int {
-  if n == 1 || n == 2 {
+  if n <= 2 {
     return 1
   }
   return fib(n-1) + fib(n-2)
 }
 
 func main() {
-  n, err := strconv.Atoi(os.Args[1])
-  if err != nil {
-    fmt.Println(err)
-  } else {
-    fmt.Printf("fib(%d) = %d\n", n, fib(n))
+  var n int
+  if len(os.Args) > 1 {
+    n, _ = strconv.Atoi(os.Args[1])
   }
+  if n == 0 {
+    n = 10
+  }
+
+  fmt.Printf("fib(%d) = %d\n", n, fib(n))
 }
+
 ```
 
 And run it like this within Node:
@@ -54,18 +58,18 @@ The first thing you might be asking is:
 
 Well... *because* that's why! Let's go over the pros and cons:
 
-## Pros
+### Pros
 
 - I wanted to see if I could
 
-## Cons
+### Cons
 
 - It is slow (by an order of magnitude)
 - Go compiles even simple programs to more than 2MB files
 - It adds unnecessary complexity to a simple process
 - Go code already runs on the server (WASM is primarily targeted at the browser)
 
-As you can see I am not going to be running this in production any time soon. But let's do it anyway!
+As you can see we are not going to be running this in production any time soon. But let's do it anyway!
 
 ## Compiling Go 1.11 to WebAssembly
 
@@ -76,10 +80,10 @@ $ go version
 go version go1.11 windows/amd64
 ```
 
-Clone the repo to your local machine:
+Clone the [repo](https://github.com/roger-hamilton/go-in-js/tree/master) to your local machine:
 
 ```bash
-git clone https://github.com/rhamilton/....
+git clone https://github.com/roger-hamilton/go-in-js.git
 ```
 
 Install dependencies (right now I only have cross-env because working with environment variables is painful on windows):
@@ -104,6 +108,8 @@ GOOS=js GOARCH=wasm go build -o main.wasm
 This should add a `main.wasm` file to your working directory. On my system it weighs in at a hefty 2.35MB. Not exactly the type of file you would want to distribute over the wire in a browser environment. But when you compare it to compiled go binaries it is in the same ballpark. (the sample program we are looking at comes in at 1.89MB for the compiled binary on windows)
 
 ## Actually getting it to run in Node.js
+
+### *please note: I am currently running node 10.11 so your milage may vary*
 
 This is where the pain started... As a starting point I tried to just load the WASM file in node according to the docs for WebAssembly:
 
@@ -231,7 +237,9 @@ It turns out that what is being passed in to our function is just an address in 
 To do this successfully we need to know the size in memory of each of the types. The first two are stored in 64 bits and the last should be pretty obvious (32 bits). All of them are stored in Little Endian so we have to fiddle with retrieval a bit.
 
 ```javascript
-// Data view is just a wrapper around a buffer to allow you to work on different parts as different variables without having to copy any data around
+// Data view is just a wrapper around a buffer to allow you to
+// work on different parts as different variables without having
+// to copy any data around
 const mem = new DataView(wasm.instance.exports.mem.buffer);
 const getInt32 = (addr) => {
   return mem.getInt32(addr, true)
@@ -260,7 +268,6 @@ const importObject = {
     },
   }, {
     get(target, prop) {
-      // this check is needed since there are some calls with symbols that we don't want to mess with
       if (target[prop]) return target[prop];
       return (...args) => {
         console.log(`${prop}(${args.join(', ')})`);
@@ -291,8 +298,12 @@ But now I was stuck with a program that only every outputted the same thing. I w
 
 The trick here was the `argc` and `argv` parameters passed to the run function. We have to prepare each input as a string and store those strings in the shared buffer in just the right way. This took me a couple of more hours to achieve.
 
-All these hours of work to get a program that takes 3000ms to compute what Node is able to do in 800ms.
+All these hours of work to get a program that takes 3000ms to compute what Node is able to do in 800ms. But I learned a lot about how much a programming language does for you in terms of managing and aligning memory.
+
+Overall this seems like a very fragile solution, but it is Go's first steps into the world of wasm. The benefit of having a portable binary that can be streamed and run in _most_ browsers is very powerful, but the benefit of getting it to run in Node is not that appealing. Maybe something will change and make it more worthwhile to target the server with WASM (but I wouldn't count on it).
 
 <video autoplay loop muted playsinline>
   <source src="i-learned-something-today.webm" />
 </video>
+
+### As this is my very first technical blog post: your feed back is very much appreciated

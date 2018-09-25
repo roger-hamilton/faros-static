@@ -21,7 +21,7 @@ const ProfilePic = styled.img`
 `;
 
 const Small = styled.div`
-  ${scaled(-3 / 5)}
+  ${scaled(-7 / 10)}
 `;
 
 const Bio = () => (
@@ -32,7 +32,7 @@ const Bio = () => (
       who lives and works in Oklahoma City, creating useful* things.
       {' '}
       <a href="https://www.linkedin.com/in/roger-hamilton-995b6290/">You should connect with him on LinkedIn</a>
-      <Small>*technically useful-ish</Small>
+      <Small>*ish</Small>
     </div>
   </Container>
 );
