@@ -58,7 +58,7 @@ const BlogPostTemplate = (props) => {
 
       <Bio />
 
-      <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+      { location.hostname !== 'localhost' && <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} /> }
 
       <DiscoverList>
         <li>

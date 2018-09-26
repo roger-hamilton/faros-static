@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Faros Development Blog',
     author: 'Roger Hamilton',
-    description: 'A collection of thoughts by an unstable mind',
+    description: 'A collection of thoughts about software',
     siteUrl: 'https://blog.farosdev.com',
   },
   pathPrefix: '/',

@@ -11,14 +11,13 @@ const Container = styled.div`
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
 `;
 
-const RootHeader = styled.h3`
+const RootHeader = styled.h1`
   ${scaled(1.5)}
   margin-bottom: ${rhythm(1.5)};
   margin-top: 0;
 `;
 
-const SubPageHeader = styled.h3`
-  font-family: "Montserrat, sans-serif";
+const SubPageHeader = styled.h1`
   margin-top: 0;
   margin-bottom: ${rhythm(-1)};
 `;

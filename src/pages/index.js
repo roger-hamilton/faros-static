@@ -19,8 +19,8 @@ injectGlobal`
 const BlogIndex = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
   const siteDescription = get(
-    this,
-    'props.data.site.siteMetadata.description',
+    props,
+    'data.site.siteMetadata.description',
   );
   const posts = get(props, 'data.allMarkdownRemark.edges');
   const { location } = props;
