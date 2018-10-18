@@ -1,0 +1,1 @@
+{"data":{"site":{"siteMetadata":{"title":"Faros Development Blog","description":"A collection of thoughts by an unstable mind"}},"allMarkdownRemark":{"edges":[{"node":{"excerpt":"This is a work in progress...","fields":{"slug":"/go-in-js/"},"frontmatter":{"date":"21 September, 2018","title":"Running Go code in JavaScript"}}}]}},"pageContext":{}}
