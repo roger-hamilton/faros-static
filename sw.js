@@ -26,33 +26,33 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-f411997d82891471a13d.js"
+    "url": "webpack-runtime-ef3d6068c61829114dc5.js"
   },
   {
     "url": "app.af16afd375c8097504d1.css"
   },
   {
-    "url": "app-13a66c0ecf4e4fe492f8.js"
+    "url": "app-fdfa59cce601a7694e65.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-416e3433c94a981b3e42.js"
   },
   {
     "url": "index.html",
-    "revision": "d52b23f5b0cbe9b56de43502e43db884"
+    "revision": "2916c88f385928865c6110ef812fe9dc"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "9ad7ebe965b45c8eed0095d405ba0366"
+    "revision": "ebec0d63ab60df5af60354c8a72754e5"
   },
   {
-    "url": "1.b89ea2f94670ddf3deeb.css"
+    "url": "1.3f4a65ae9260eaf4aa48.css"
   },
   {
     "url": "component---src-pages-index-js-ba77c9189c87fcfb7696.js"
   },
   {
-    "url": "1-164560773c1aff7c1a55.js"
+    "url": "1-ba80491159cb9365e1bc.js"
   },
   {
     "url": "0-d0814208ec84ef8bd057.js"
@@ -80,7 +80,7 @@ self.__precacheManifest = [
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/offline-plugin-app-shell-fallback/index.html", {
+workbox.routing.registerNavigationRoute("/faros-static/offline-plugin-app-shell-fallback/index.html", {
   whitelist: [/^[^?]*([^.?]{5}|\.html)(\?.*)?$/],
   blacklist: [/\?(.+&)?no-cache=1$/],
 });

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Faros Development Blog]]></title><description><![CDATA[A collection of thoughts about software]]></description><link>https://blog.farosdev.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 18 Oct 2018 04:32:40 GMT</lastBuildDate><item><title><![CDATA[Running Go in Node.js]]></title><description><![CDATA[Lets Get Started We will be exploring running WebAssembly (or WASM) in node. Specifically we will see how to get Go 1.11 code compiled down…]]></description><link>https://blog.farosdev.com/go-in-js/</link><guid isPermaLink="false">https://blog.farosdev.com/go-in-js/</guid><pubDate>Mon, 24 Sep 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Lets Get Started&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Faros Development Blog]]></title><description><![CDATA[A collection of thoughts about software]]></description><link>https://blog.farosdev.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 18 Oct 2018 04:34:34 GMT</lastBuildDate><item><title><![CDATA[Running Go in Node.js]]></title><description><![CDATA[Lets Get Started We will be exploring running WebAssembly (or WASM) in node. Specifically we will see how to get Go 1.11 code compiled down…]]></description><link>https://blog.farosdev.com/go-in-js/</link><guid isPermaLink="false">https://blog.farosdev.com/go-in-js/</guid><pubDate>Mon, 24 Sep 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Lets Get Started&lt;/h1&gt;
 &lt;p&gt;We will be exploring running WebAssembly (or WASM) in node. Specifically we will see how to get Go 1.11 code compiled down to WASM and run that code in Node.js.&lt;/p&gt;
 &lt;p&gt;We will compile this Go program:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;go&quot;&gt;&lt;pre class=&quot;language-go&quot;&gt;&lt;code class=&quot;language-go&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Main.go&lt;/span&gt;
@@ -37,7 +37,7 @@
 go&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The first thing you might be asking is:&lt;/p&gt;
 &lt;video autoplay loop muted playsinline&gt;
-  &lt;source src=&quot;/but-why-d5de028fc945e8d8f10f3666708692eb.webm&quot; /&gt;
+  &lt;source src=&quot;/faros-static/but-why-d5de028fc945e8d8f10f3666708692eb.webm&quot; /&gt;
 &lt;/video&gt;
 &lt;p&gt;Well… &lt;em&gt;because&lt;/em&gt; that’s why! Let’s go over the pros and cons:&lt;/p&gt;
 &lt;h3&gt;Pros&lt;/h3&gt;
@@ -208,6 +208,6 @@ runtime.wasmExit(1339976)
 &lt;p&gt;All these hours of work to get a program that takes 3000ms to compute what Node is able to do in 800ms. But I learned a lot about how much a programming language does for you in terms of managing and aligning memory.&lt;/p&gt;
 &lt;p&gt;Overall this seems like a very fragile solution, but it is Go’s first steps into the world of wasm. The benefit of having a portable binary that can be streamed and run in &lt;em&gt;most&lt;/em&gt; browsers is very powerful, but the benefit of getting it to run in Node is not that appealing. Maybe something will change and make it more worthwhile to target the server with WASM (but I wouldn’t count on it).&lt;/p&gt;
 &lt;video autoplay loop muted playsinline&gt;
-  &lt;source src=&quot;/i-learned-something-today-836a7f88e037046f1415bfcc70e4fc9d.webm&quot; /&gt;
+  &lt;source src=&quot;/faros-static/i-learned-something-today-836a7f88e037046f1415bfcc70e4fc9d.webm&quot; /&gt;
 &lt;/video&gt;
 &lt;h3&gt;As this is my very first technical blog post: your feed back is very much appreciated&lt;/h3&gt;</content:encoded></item></channel></rss>
