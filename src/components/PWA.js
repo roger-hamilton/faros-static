@@ -9,21 +9,23 @@ export default class PWA extends React.Component {
   }
 
   componentDidMount() {
-    console.log('attaching event listener');
+    console.info('attaching event listener');
     document.addEventListener('beforeinstallprompt', this.handleEvent);
   }
 
   componentWillUnmount() {
-    console.log('removing event listener');
+    console.info('removing event listener');
     document.removeEventListener('beforeinstallprompt', this.handleEvent);
   }
 
   handleEvent = (installEvent) => {
-    console.log(installEvent);
+    console.info({ installEvent });
     this.setState({ installEvent });
   }
 
   render() {
+    console.info(this.state);
+    // console.error('hey');
     return null;
   }
 }
