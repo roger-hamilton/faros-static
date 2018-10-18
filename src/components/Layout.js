@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import { rhythm, scaled } from '../utils/typography';
+import PWA from './PWA';
 
 const Container = styled.div`
   margin-left: auto;
@@ -42,6 +43,7 @@ const Template = (props) => {
         <HeaderLink to="/">Faros Dev Blog</HeaderLink>
       </Header>
       {children}
+      <PWA />
     </Container>
   );
 };
